@@ -14,6 +14,9 @@ var builder = Kernel
 Kernel kernel = builder.Build();
 var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
 
+// Add a plugin (the LightsPlugin class is defined below)
+kernel.Plugins.AddFromType<LightsPlugin>("Lights");
+
 // Enable planning
 OpenAIPromptExecutionSettings openAIPromptExecutionSettings = new()
 {
